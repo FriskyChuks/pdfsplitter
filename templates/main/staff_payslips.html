@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+<br>
+<div class="container text-center">
+    <h2>Your Payslips</h2>
+
+    <h2>Your Payslips</h2>
+
+    <form method="get">
+        <label for="month">Month:</label>
+        <select name="month" id="month">
+            <option value="">--Select Month--</option>
+            {% for value, name in months %}
+            <option value="{{ value }}" {% if value|stringformat:"d" == request.GET.month %}selected{% endif %}>
+                {{ name }}
+            </option>
+            {% endfor %}
+        </select>
+        <label for="year">Year:</label>
+        <select name="year" id="year">
+            <option value="">--Select Year--</option>
+            {% for year in payslips.values_list('pdf_file__payslip_date__year', flat=True).distinct %}
+            <option value="{{ year }}" {% if year == request.GET.year|default:''|int %}selected{% endif %}>
+                {{ year }}
+            </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Payslip Month</th>
+                <th>Page Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payslip in payslips %}
+            <tr>
+                <td>{{ payslip.pdf_file.payslip_date|date:"F Y" }}</td>
+                <td>{{ payslip.page_number }}</td>
+                <td>
+                    <a href="{% url 'download_payslip' payslip.id %}">Download</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No payslips found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br>
+<hr>
+{% endblock content %}

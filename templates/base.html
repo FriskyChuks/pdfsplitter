@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>pdfSplitter - {% block title %} {% endblock title %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="author" content="">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+
+        {% include 'base_files/css.html' %}
+    </head>
+    <body>
+        {% include 'base_files/navbar.html' %}
+
+        <div class="container text-center">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %} alert-{{ message.tags }} {% endif %} alert-dismissible fade show" role="alert">
+                        <ul class="messages">
+                            <li>{{ message }}</li>
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        {% block content %}
+
+        {% endblock content %}
+
+        {% include 'base_files/footer.html' %}
+        
+        {% include 'base_files/js.html' %}
+    </body>
+</html>
