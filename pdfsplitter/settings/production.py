@@ -3,14 +3,14 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-7wos6ck@r#xw8htcjx262k@7eiptrlxc&i2)s8&3=zs3b+lsw7'
 SECRET_KEY = 'django-insecure-nyr7anc5iila4(bs7y4pmyb*pd8ffm8f99%8c4xo&p$lf)=b8s' # from main app
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # opional, as this will log you out when browser is closed
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
