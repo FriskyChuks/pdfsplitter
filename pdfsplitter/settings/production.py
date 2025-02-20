@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-7wos6ck@r#xw8htcjx262k@7eiptrlxc&i2)s8&3=zs3b+lsw7'
@@ -21,7 +21,7 @@ SESSION_SAVE_EVERY_REQUEST = True
 LOGIN_URL = '/accounts/auth_login/'
 LOGOUT_REDIRECT_URL = '/'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['payslip.fmckeffi.gov.ng', '127.0.0.1']
 
 
 # Application definition
@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'pdfsplitter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "fmck_apps",
-        'USER': "root",
-        'PASSWORD': "Light@6085",
+        'NAME': "payslip",
+        'USER': "appdev2",
+        'PASSWORD': "Password@2",
         'HOST': "localhost",
         'PORT': "3306"
         # 'OPTIONS': {
@@ -125,14 +125,16 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
-MEDIA_URL = 'media/'
+HOST_SERVER = "payslip.fmckeffi.gov.ng"
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static','media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR, 'staticfiles'),
+]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MESSAGE_TAGS = {

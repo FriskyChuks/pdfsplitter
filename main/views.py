@@ -4,15 +4,12 @@ from django.core.files.base import ContentFile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import datetime
-from django.db import transaction
-from django.db import IntegrityError
 import os
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
 import io
-import re  # Import regular expressions module
 from django.core.cache import cache
 
 from django.contrib.auth import get_user_model
