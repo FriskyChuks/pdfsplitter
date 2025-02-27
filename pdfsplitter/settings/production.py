@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-7wos6ck@r#xw8htcjx262k@7eiptrlxc&i2)s8&3=zs3b+lsw7'
@@ -126,15 +126,20 @@ USE_I18N = True
 USE_TZ = True
 
 HOST_SERVER = "payslip.fmckeffi.gov.ng"
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_root')
+
+STATIC_ROOT = "/home/joshuapr/payslip.hcare.com.ng/static"
+MEDIA_ROOT = "/home/joshuapr/payslip.hcare.com.ng/static/media"
 
 STATICFILES_DIRS = [
-	os.path.join(BASE_DIR, 'staticfiles'),
+	"/home/joshuapr/payslip.hcare.com.ng/static",
 ]
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MESSAGE_TAGS = {

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <title>pdfSplitter - {% block title %} {% endblock title %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    {% include 'base_files/css.html' %}
+</head>
+
+<body>
+    <div class="container text-center">
+        <section id="slider" data-aos="fade-up">
+            <div class="container-fluid padding-side">
+                <div class="d-flex rounded-5"
+                    style="background-image: url(images/slider-image.jpg); background-size: cover; background-repeat: no-repeat; height: 85vh; background-position: center;">
+                    <div class="row align-items-center m-auto pt-3 px-4 px-lg-0">
+                        <div class="text-start ">
+                            <h2 class="display-1 fw-normal">We are currently unavailble; kindly use the local address
+                                within FMC Keffi.</h2>
+                            <br>
+                            <h3>cittu.fmckeffi.gov.ng</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    {% block content %}
+
+    {% endblock content %}
+
+    {% include 'base_files/footer.html' %}
+
+    {% include 'base_files/js.html' %}
+</body>
+
+</html>

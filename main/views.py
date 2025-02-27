@@ -111,7 +111,9 @@ def home_view(request):
                 messages.error(request, "Invalid date format. Please select a valid date.")
                 return redirect('home')
 
-    return render(request, 'main/index.html', {"ippis_no":ippis_no, "ippis_staff":ippis_staff})
+    return render(request, 'error_pages/unavailable.html', {"ippis_no":ippis_no, "ippis_staff":ippis_staff})
+    # return render(request, 'main/index.html', {"ippis_no":ippis_no, "ippis_staff":ippis_staff})
+
 
 
 @login_required
